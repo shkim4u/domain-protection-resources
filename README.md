@@ -1,14 +1,7 @@
-# Welcome to your CDK TypeScript project
+# 서브도메인 탈취 (Subdomain Takeover) 대응 자동화 리소스
 
-This is a blank project for CDK development with TypeScript.
+명령을 수행하는 쉘의 AWS Credential이 Audit 어카운트 (혹은 지정 아카운트)의 그것임을 확인한다.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+아래 명령어로 배포한다.
 
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+* `npm install; npm run deploy`

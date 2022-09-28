@@ -14,17 +14,6 @@ const app = new cdk.App();
 const region = app.node.tryGetContext('region') || process.env.CDK_INTEG_REGION || process.env.CDK_DEFAULT_REGION;
 const account= app.node.tryGetContext('account') || process.env.CDK_INTEG_ACCOUNT || process.env.CDK_DEFAULT_ACCOUNT;
 
-
-/**
- * [2021-11-05] KSH
- * CDK_INTEG_XXX are set when producing the .expected file and CDK_DEFAULT_XXX is passed in
- * through from the CLI in actual deployment.
- */
-// const env = {
-//   region: app.node.tryGetContext('region') || process.env.CDK_INTEG_REGION || process.env.CDK_DEFAULT_REGION,
-//   account: app.node.tryGetContext('account') || process.env.CDK_INTEG_ACCOUNT || process.env.CDK_DEFAULT_ACCOUNT,
-// };
-
 function setenv() {
   return {
     env: {
@@ -62,27 +51,13 @@ const snsStack = new SnsStack(
   {
     ... setenv()
   },
-  // lambdaStack.takeoverLambdaFunction,
-  // lambdaStack.notifyLambdaFunction
 );
 
 const lambdaStack = new LambdaStack(
   app,
   'Domain-Protection-Resources-Lambda',
   {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
-
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
-
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
     ... setenv()
-
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
   },
   snsStack.snsTopic
 );

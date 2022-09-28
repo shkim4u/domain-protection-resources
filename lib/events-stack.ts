@@ -31,7 +31,7 @@ export class EventsStack extends Stack {
         ruleName: `${props.project}-accounts-event-rule`,
         description: `Triggers ${props.project} lambda functions to schedule {Accounts}`,
         targets: [new targets.LambdaFunction(accountsLambdaFunction)],
-        schedule: Schedule.rate(Duration.minutes(5)),
+        schedule: Schedule.rate(Duration.minutes(1)),
         enabled: true
       },
       // 2. Rule to trigger "Current" lambda function.
@@ -40,7 +40,18 @@ export class EventsStack extends Stack {
         ruleName: `${props.project}-current-event-rule`,
         description: `Triggers ${props.project} lambda functions to schedule {Current}`,
         targets: [new targets.LambdaFunction(currentLambdaFunction)],
-        schedule: Schedule.rate(Duration.hours(24)),
+        // [2022-09-27] Changed to "cron" from "rate"
+        // schedule: Schedule.rate(Duration.hours(24)),
+        schedule: Schedule.cron(
+          {
+            year: '*',
+            // weekDay: '?',
+            month: '*',
+            day: '*',
+            hour: '0',
+            minute: '0'
+          }
+        ),
         enabled: true
       },
       // 3. Rule to trigger "Resources" lambda function.
@@ -49,7 +60,18 @@ export class EventsStack extends Stack {
         ruleName: `${props.project}-resources-event-rule`,
         description: `Triggers ${props.project} lambda functions to schedule {Resources}`,
         targets: [new targets.LambdaFunction(resourcesLambdaFunction)],
-        schedule: Schedule.rate(Duration.hours(24)),
+        // [2022-09-27] Changed to "cron" from "rate"
+        // schedule: Schedule.rate(Duration.hours(24)),
+        schedule: Schedule.cron(
+          {
+            year: '*',
+            // weekDay: '?',
+            month: '*',
+            day: '*',
+            hour: '0',
+            minute: '10'
+          }
+        ),
         enabled: true
       },
       // 4. Rule to trigger "Stats" lambda function.
@@ -77,7 +99,7 @@ export class EventsStack extends Stack {
         ruleName: `${props.project}-update-event-rule`,
         description: `Trigger ${props.project} lambda function to schedule {Update}`,
         targets: [new targets.LambdaFunction(updateLambdaFunction)],
-        schedule: Schedule.rate(Duration.hours(3)),
+        schedule: Schedule.rate(Duration.hours(1)),
         enabled: true
       }
     ];

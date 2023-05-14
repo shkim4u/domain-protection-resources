@@ -261,8 +261,8 @@ def lambda_handler(event, context):  # pylint:disable=unused-argument
         "sections": [
             {
                 "activityTitle": subject,   # Default to the subject, which will be appended later with emoji icons.
-                "activitySubtitle": "SCK 사이렌 플랫폼",
-                "activityImage": "https://www.starbucks.co.kr/common/img/common/logo.png",
+                "activitySubtitle": "AWS 도메인 보호",
+                "activityImage": "https://a0.awsstatic.com/libra-css/images/logos/aws_smile-header-desktop-en-white_59x35.png",
                 "facts": [],
                 "markdown": True
             }

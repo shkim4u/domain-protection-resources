@@ -1,13 +1,13 @@
 {
   "Domain-Protection-Resources-SNS": {
-    "ExportsOutputRefdomainprotectionsnstopic543D7CDE08FA5157": "arn:aws:sns:ap-northeast-2:284613372749:domain-protection-sns-topic"
+    "ExportsOutputRefdomainprotectionsnstopic543D7CDE08FA5157": "arn:aws:sns:ap-northeast-2:850722737499:domain-protection-sns-topic"
   },
   "Domain-Protection-Resources-Lambda": {
-    "ExportsOutputFnGetAttdomainprotectionstatslambdafunction0AF1CD79Arn2D72D659": "arn:aws:lambda:ap-northeast-2:284613372749:function:domain-protection-stats-lambda-function",
-    "ExportsOutputFnGetAttdomainprotectionupdatelambdafunction02DEB00AArnCEA49A4D": "arn:aws:lambda:ap-northeast-2:284613372749:function:domain-protection-update-lambda-function",
-    "ExportsOutputFnGetAttdomainprotectionresourceslambdafunctionC3177FE7ArnDE444848": "arn:aws:lambda:ap-northeast-2:284613372749:function:domain-protection-resources-lambda-function",
-    "ExportsOutputFnGetAttdomainprotectionaccountslambdafunction940E1E50ArnFCA95D38": "arn:aws:lambda:ap-northeast-2:284613372749:function:domain-protection-accounts-lambda-function",
-    "ExportsOutputFnGetAttdomainprotectionscanlambdafunctionA716CC1CArn4D9F8923": "arn:aws:lambda:ap-northeast-2:284613372749:function:domain-protection-scan-lambda-function",
-    "ExportsOutputFnGetAttdomainprotectioncurrentlambdafunction33C7F99DArnB028F9F2": "arn:aws:lambda:ap-northeast-2:284613372749:function:domain-protection-current-lambda-function"
+    "ExportsOutputFnGetAttdomainprotectionstatslambdafunction0AF1CD79Arn2D72D659": "arn:aws:lambda:ap-northeast-2:850722737499:function:domain-protection-stats-lambda-function",
+    "ExportsOutputFnGetAttdomainprotectionupdatelambdafunction02DEB00AArnCEA49A4D": "arn:aws:lambda:ap-northeast-2:850722737499:function:domain-protection-update-lambda-function",
+    "ExportsOutputFnGetAttdomainprotectionresourceslambdafunctionC3177FE7ArnDE444848": "arn:aws:lambda:ap-northeast-2:850722737499:function:domain-protection-resources-lambda-function",
+    "ExportsOutputFnGetAttdomainprotectionaccountslambdafunction940E1E50ArnFCA95D38": "arn:aws:lambda:ap-northeast-2:850722737499:function:domain-protection-accounts-lambda-function",
+    "ExportsOutputFnGetAttdomainprotectionscanlambdafunctionA716CC1CArn4D9F8923": "arn:aws:lambda:ap-northeast-2:850722737499:function:domain-protection-scan-lambda-function",
+    "ExportsOutputFnGetAttdomainprotectioncurrentlambdafunction33C7F99DArnB028F9F2": "arn:aws:lambda:ap-northeast-2:850722737499:function:domain-protection-current-lambda-function"
   }
 }

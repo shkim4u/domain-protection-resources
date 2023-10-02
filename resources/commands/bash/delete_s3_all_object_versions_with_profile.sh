@@ -5,13 +5,15 @@
 # - https://stackoverflow.com/questions/29809105/how-do-i-delete-a-versioned-bucket-in-aws-s3-using-the-cli
 
 bucket=$1
+profile=$2
 
 set -e
 
 echo "Removing all versions from $bucket"
+echo "Using AWS CLI profile $profile"
 
-versions=`aws s3api list-object-versions --bucket $bucket | jq '.Versions'`
-markers=`aws s3api list-object-versions --bucket $bucket | jq '.DeleteMarkers'`
+versions=`aws s3api list-object-versions --bucket $bucket --profile $profile | jq '.Versions'`
+markers=`aws s3api list-object-versions --bucket $bucket --profile $profile | jq '.DeleteMarkers'`
 
 echo "removing files"
 for version in $(echo "${versions}" | jq -r '.[] | @base64'); do
@@ -19,7 +21,7 @@ for version in $(echo "${versions}" | jq -r '.[] | @base64'); do
 
     key=`echo $version | jq -r .Key`
     versionId=`echo $version | jq -r .VersionId `
-    cmd="aws s3api delete-object --bucket $bucket --key $key --version-id $versionId"
+    cmd="aws s3api delete-object --bucket $bucket --key $key --version-id $versionId --profile $profile"
     echo $cmd
     $cmd
 done
@@ -30,7 +32,7 @@ for marker in $(echo "${markers}" | jq -r '.[] | @base64'); do
 
     key=`echo $marker | jq -r .Key`
     versionId=`echo $marker | jq -r .VersionId `
-    cmd="aws s3api delete-object --bucket $bucket --key $key --version-id $versionId"
+    cmd="aws s3api delete-object --bucket $bucket --key $key --version-id $versionId --profile $profile"
     echo $cmd
     $cmd
 done
